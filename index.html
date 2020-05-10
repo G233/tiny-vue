@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #app {
+      text-align: center;
+    }
+    input {
+      display: block;
+      width: 100px;
+      margin: auto;
+    }
+  </style>
+  <body>
+    <div id="app">
+      <h2>{{ title }}</h2>
+      <h1>{{ name }}</h1>
+    </div>
+    <input type="text" autofocus oninput="changetext(value)" />
+  </body>
+
+  <script type="module">
+    import TinyVue from './js/index.js'
+    window.data = {
+      title: 'hello world',
+      name: '你好啊',
+    }
+    const selfVue = new TinyVue({
+      el: '#app',
+      data: window.data,
+    })
+  </script>
+  <script type="text/javascript">
+    function changetext(e) {
+      console.log(e)
+      window.data.name = e
+    }
+  </script>
+</html>
